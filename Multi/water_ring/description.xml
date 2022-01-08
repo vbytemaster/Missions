@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="4">
+<MissionDescription class_id="0" tracking_level="0" version="2">
+	<MissionName class_id="1" tracking_level="0" version="0">
+		<NonLocaleText>Водное кольцо</NonLocaleText>
+		<LocaleCount>1</LocaleCount>
+		<LocalePair class_id="2" tracking_level="0" version="0">
+			<Locale>3</Locale>
+			<Text>Водное кольцо</Text>
+		</LocalePair>
+	</MissionName>
+	<MissionDescription>
+		<NonLocaleText></NonLocaleText>
+		<LocaleCount>1</LocaleCount>
+		<LocalePair>
+			<Locale>3</Locale>
+			<Text>На этой карте может играть от 2-х до 4-х игроков.
+
+Для того чтобы выйграть, команде нужно захватить все базы противника:
+
+1. Северная база;
+2. Южная;
+3. Восточная;
+4. Западная;
+5. Центральная;
+
+ВНИМАНИЕ:
+
+1. За ЦЕНТРАЛЬНУЮ базу выдаются более мощные пополнения;
+
+2. За ЦЕНТРАЛЬНЫЕ базы выдаются регулярные пополнения;
+
+Дополнительные задачи:
+
+Удержать (В ПРЯМОМ СМЫСЛЕ) четыре населённых пункта, за удержимавание выдаются регулярные подкрепления;</Text>
+		</LocalePair>
+	</MissionDescription>
+	<Players class_id="3" tracking_level="0" version="0">
+		<count>4</count>
+		<item_version>0</item_version>
+		<item class_id="4" tracking_level="0" version="0">
+			<PlayerId>6</PlayerId>
+			<Color>1</Color>
+			<CanBeHuman>1</CanBeHuman>
+		</item>
+		<item>
+			<PlayerId>7</PlayerId>
+			<Color>2</Color>
+			<CanBeHuman>1</CanBeHuman>
+		</item>
+		<item>
+			<PlayerId>8</PlayerId>
+			<Color>3</Color>
+			<CanBeHuman>1</CanBeHuman>
+		</item>
+		<item>
+			<PlayerId>9</PlayerId>
+			<Color>4</Color>
+			<CanBeHuman>1</CanBeHuman>
+		</item>
+	</Players>
+	<MaximalPlayerCount>4</MaximalPlayerCount>
+	<Nations>
+		<count>4</count>
+		<item_version>0</item_version>
+		<item>1</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+	</Nations>
+	<Multiplayer>1</Multiplayer>
+</MissionDescription>
+</boost_serialization>

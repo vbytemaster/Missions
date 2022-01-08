@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="4">
+<Cells class_id="0" tracking_level="0" version="0">
+	<Dimension>256</Dimension>
+	<CellSize>4</CellSize>
+	<Cells class_id="1" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>
+	</Cells>
+	<Template class_id="2" tracking_level="0" version="0">
+		<X>0</X>
+		<Y>0</Y>
+		<Flags>0</Flags>
+		<TerrainType>7</TerrainType>
+		<Transparency>0</Transparency>
+		<VehiclePassability>0</VehiclePassability>
+		<HumanPassability>0</HumanPassability>
+	</Template>
+</Cells>
+</boost_serialization>

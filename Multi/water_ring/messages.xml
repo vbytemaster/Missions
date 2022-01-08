@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="4">
+<MissionMessages class_id="0" tracking_level="0" version="0">
+	<Messages class_id="1" tracking_level="0" version="0">
+		<count>8</count>
+		<item_version>0</item_version>
+		<item class_id="2" tracking_level="0" version="0">
+			<ID>100000</ID>
+			<Tag>warning</Tag>
+			<Text class_id="3" tracking_level="0" version="0">
+				<NonLocaleText>Text Center</NonLocaleText>
+				<LocaleCount>1</LocaleCount>
+				<LocalePair class_id="4" tracking_level="0" version="0">
+					<Locale>3</Locale>
+					<Text>Захватите фортификации на холме! Фортификации прикрывают левый и правый фланг от атак сзади! Потеря данного района может привести к окружению!</Text>
+				</LocalePair>
+			</Text>
+			<SoundScheme></SoundScheme>
+			<MissionName></MissionName>
+		</item>
+		<item>
+			<ID>100001</ID>
+			<Tag>flag</Tag>
+			<Text>
+				<NonLocaleText>Center</NonLocaleText>
+				<LocaleCount>1</LocaleCount>
+				<LocalePair>
+					<Locale>3</Locale>
+					<Text>Фортификации на холме</Text>
+				</LocalePair>
+			</Text>
+			<SoundScheme></SoundScheme>
+			<MissionName></MissionName>
+		</item>
+		<item>
+			<ID>100002</ID>
+			<Tag>warning</Tag>
+			<Text>
+				<NonLocaleText>Text East</NonLocaleText>
+				<LocaleCount>1</LocaleCount>
+				<LocalePair>
+					<Locale>3</Locale>
+					<Text>Захватите оборонительные позиции на востоке! Позиции являются удобным плацдармом для наступления в глубь территории противника!</Text>
+				</LocalePair>
+			</Text>
+			<SoundScheme></SoundScheme>
+			<MissionName></MissionName>
+		</item>
+		<item>
+			<ID>100003</ID>
+			<Tag>flag</Tag>
+			<Text>
+				<NonLocaleText>East</NonLocaleText>
+				<LocaleCount>1</LocaleCount>
+				<LocalePair>
+					<Locale>3</Locale>
+					<Text>Оборонительные позиции на востоке</Text>
+				</LocalePair>
+			</Text>
+			<SoundScheme></SoundScheme>
+			<MissionName></MissionName>
+		</item>
+		<item>
+			<ID>100004</ID>
+			<Tag>warning</Tag>
+			<Text>
+				<NonLocaleText>Text West</NonLocaleText>
+				<LocaleCount>1</LocaleCount>
+				<LocalePair>
+					<Locale>3</Locale>
+					<Text>Захватите позиции на западе! Данный рубеж обороны прикрывает мост.</Text>
+				</LocalePair>
+			</Text>
+			<SoundScheme></SoundScheme>
+			<MissionName></MissionName>
+		</item>
+		<item>
+			<ID>100005</ID>
+			<Tag>flag</Tag>
+			<Text>
+				<NonLocaleText>West</NonLocaleText>
+				<LocaleCount>1</LocaleCount>
+				<LocalePair>
+					<Locale>3</Locale>
+					<Text>Оборонительные позиции на западе</Text>
+				</LocalePair>
+			</Text>
+			<SoundScheme></SoundScheme>
+			<MissionName></MissionName>
+		</item>
+		<item>
+			<ID>100006</ID>
+			<Tag>flag</Tag>
+			<Text>
+				<NonLocaleText>x</NonLocaleText>
+				<LocaleCount>1</LocaleCount>
+				<LocalePair>
+					<Locale>3</Locale>
+					<Text>Перекресток</Text>
+				</LocalePair>
+			</Text>
+			<SoundScheme></SoundScheme>
+			<MissionName></MissionName>
+		</item>
+		<item>
+			<ID>100007</ID>
+			<Tag>flag</Tag>
+			<Text>
+				<NonLocaleText>Village</NonLocaleText>
+				<LocaleCount>1</LocaleCount>
+				<LocalePair>
+					<Locale>3</Locale>
+					<Text>Населенный пункт</Text>
+				</LocalePair>
+			</Text>
+			<SoundScheme></SoundScheme>
+			<MissionName></MissionName>
+		</item>
+	</Messages>
+</MissionMessages>
+</boost_serialization>
