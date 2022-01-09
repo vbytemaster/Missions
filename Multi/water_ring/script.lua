@@ -3,257 +3,32 @@ dofile("Scripts/msl.lua");
 
 function PostCreate()
 	mission_lua.BasicMissionInitialize()
-	AIparts:AddOneTime("SpawnScouts", 10, func_SpawnScouts)
-	AIparts:AddOneTime("General", 1010, func_General)
-	AIparts:AddOneTime("SpawnInfantry", 1210, func_SpawnInfantry)
-	AIparts:AddOneTime("SpawnSpecialSquads", 1410, func_SpawnSpecialSquads)
-	AIparts:AddOneTime("SpawnAntiair", 1910, func_SpawnAntiair)
-	AIparts:AddPeriodic("SpawnSupport", 36000, func_SpawnSupport, 2400 + RandomHalf(100))
-	AIparts:AddOneTime("SpawnTanks", 2810, func_SpawnTanks)
-	AIparts:AddOneTime("SpawnSpg", 3210, func_SpawnSpg)
-	AIparts:AddOneTime("SpawnInfantrry1", 6210, func_SpawnInfantrry1)
-	AIparts:AddOneTime("SpawnTanks1", 6810, func_SpawnTanks1)
-	AIparts:AddOneTime("SpawnHeavybonus", 7210, func_SpawnHeavybonus)
-	AIparts:AddOneTime("SpawnHowitzers", 7710, func_SpawnHowitzers)
-	AIparts:AddOneTime("SpawnSturmIfantryPlatoon", 15210, func_SpawnSturmIfantryPlatoon)
-	AIparts:AddOneTime("Rocket", 15810, func_Rocket)
-	AIparts:AddOneTime("DefineFlags", 30, func_DefineFlags)
-	AIparts:AddOneTime("Aircrafts", 10, func_Aircrafts)
-	AIparts:AddOneTime("Bonus", 1210, func_Bonus)
-	AIparts:AddOneTime("BonusX", 16010, func_BonusX)
+	AIparts:AddOneTime("define_flags", 30, func_define_flags)
+	AIparts:AddOneTime("bonus", 1210, func_bonus)
+	AIparts:AddOneTime("scouts", 10, func_scouts)
+	AIparts:AddOneTime("general", 1010, func_general)
+	AIparts:AddOneTime("inf_platoon1", 1310, func_inf_platoon1)
+	AIparts:AddOneTime("special_squads", 1410, func_special_squads)
+	AIparts:AddOneTime("antiair", 2010, func_antiair)
+	AIparts:AddPeriodic("support", 36000, func_support, 2400 + RandomHalf(100))
+	AIparts:AddOneTime("tanks", 3010, func_tanks)
+	AIparts:AddOneTime("spg", 3310, func_spg)
+	AIparts:AddOneTime("inf_platoon2", 9010, func_inf_platoon2)
+	AIparts:AddOneTime("spzbat_platoon", 9410, func_spzbat_platoon)
+	AIparts:AddOneTime("heavybonus", 9710, func_heavybonus)
+	AIparts:AddOneTime("howitzers", 10410, func_howitzers)
+	AIparts:AddOneTime("sturm_inf_platoon", 16010, func_sturm_inf_platoon)
+	AIparts:AddOneTime("rocket", 16210, func_rocket)
+	AIparts:AddOneTime("airbonus", 16210, func_airbonus)
 	msd_vars = {
 		Alliance1id = 1,
 		Alliance2id = 2,
-		NorthStatus = 0,
-		Random = 0,
-		Random1 = 0,
-		Random2 = 0,
-		Random3 = 0,
-		Random4 = 0,
-		Random5 = 0,
-		Random7 = 0,
-		Random8 = 0,
-		SouthStatus = 0,
+		random = 0,
 	}
 end
 
-function func_SpawnScouts()
-	do
-		RunMultiSpawn(msd_vars.Alliance1id, "scouts")
-		RunMultiSpawn(msd_vars.Alliance2id, "scouts")
-	end
-end
-
-function func_General()
-	do
-		RunMultiSpawn(msd_vars.Alliance1id, "GeneralAndSappers")
-		RunMultiSpawn(msd_vars.Alliance2id, "GeneralAndSappers")
-	end
-end
-
-function func_SpawnInfantry()
-	do
-		msd_vars.Random7 = RandomHalf(2)
-	end
-	if msd_vars.Random7 < 1 then
-		RunMultiSpawn(msd_vars.Alliance1id, "infantry_platoon")
-	else
-		RunMultiSpawn(msd_vars.Alliance1id, "infantry_platoon2")
-	end
-	do
-		msd_vars.Random7 = RandomHalf(2)
-	end
-	if msd_vars.Random7 < 1 then
-		RunMultiSpawn(msd_vars.Alliance2id, "infantry_platoon")
-	else
-		RunMultiSpawn(msd_vars.Alliance2id, "infantry_platoon2")
-	end
-end
-
-function func_SpawnSpecialSquads()
-	do
-		RunSimpleSpawn(6, "arty2guns", "arty2guns")
-		RunSimpleSpawn(7, "sappers", "sappers")
-		RunSimpleSpawn(8, "amphibians", "amphibians")
-		RunSimpleSpawn(9, "sappers", "train")
-	end
-end
-
-function func_SpawnAntiair()
-	do
-		msd_vars.Random4 = RandomHalf(2)
-	end
-	if msd_vars.Random4 < 1 then
-		RunMultiSpawn(msd_vars.Alliance1id, "antiair")
-	else
-		RunMultiSpawn(msd_vars.Alliance1id, "antiair1")
-	end
-	do
-		msd_vars.Random4 = RandomHalf(2)
-	end
-	if msd_vars.Random4 < 1 then
-		RunMultiSpawn(msd_vars.Alliance2id, "antiair")
-	else
-		RunMultiSpawn(msd_vars.Alliance2id, "antiair1")
-	end
-end
-
-function func_SpawnSupport()
-	do
-		RunMultiSpawn(msd_vars.Alliance1id, "support_group")
-		RunMultiSpawn(msd_vars.Alliance2id, "support_group")
-	end
-end
-
-function func_SpawnTanks()
-	do
-		msd_vars.Random2 = RandomHalf(2)
-	end
-	if msd_vars.Random2 < 1 then
-		RunMultiSpawn(msd_vars.Alliance1id, "tank_platoon")
-	else
-		RunMultiSpawn(msd_vars.Alliance1id, "tank_platoon1")
-	end
-	do
-		msd_vars.Random2 = RandomHalf(2)
-	end
-	if msd_vars.Random2 < 1 then
-		RunMultiSpawn(msd_vars.Alliance2id, "tank_platoon")
-	else
-		RunMultiSpawn(msd_vars.Alliance2id, "tank_platoon1")
-	end
-end
-
-function func_SpawnSpg()
-	do
-		msd_vars.Random3 = RandomHalf(2)
-	end
-	if msd_vars.Random3 < 1 then
-		RunMultiSpawn(msd_vars.Alliance1id, "spg_platoon1")
-	else
-		RunMultiSpawn(msd_vars.Alliance1id, "spg_platoon")
-	end
-	do
-		msd_vars.Random3 = RandomHalf(2)
-	end
-	if msd_vars.Random3 < 1 then
-		RunMultiSpawn(msd_vars.Alliance2id, "spg_platoon1")
-	else
-		RunMultiSpawn(msd_vars.Alliance2id, "spg_platoon")
-	end
-end
-
-function func_SpawnInfantrry1()
-	do
-		RunMultiSpawn(msd_vars.Alliance1id, "infantry_platoon")
-		RunMultiSpawn(msd_vars.Alliance2id, "infantry_platoon")
-	end
-end
-
-function func_SpawnTanks1()
-	do
-		msd_vars.Random1 = RandomHalf(2)
-	end
-	if msd_vars.Random1 < 1 then
-		RunMultiSpawn(msd_vars.Alliance1id, "spzbat")
-	else
-		RunMultiSpawn(msd_vars.Alliance1id, "spzbat1")
-	end
-	do
-		msd_vars.Random1 = RandomHalf(2)
-	end
-	if msd_vars.Random1 < 1 then
-		RunMultiSpawn(msd_vars.Alliance2id, "spzbat")
-	else
-		RunMultiSpawn(msd_vars.Alliance2id, "spzbat1")
-	end
-end
-
-function func_SpawnHeavybonus()
-	do
-		msd_vars.Random = RandomHalf(4)
-	end
-	if msd_vars.Random < 1 then
-		RunMultiSpawn(msd_vars.Alliance1id, "heavybonus1")
-	elseif msd_vars.Random < 2 then
-		RunMultiSpawn(msd_vars.Alliance1id, "heavybonus2")
-	elseif msd_vars.Random < 3 then
-		RunMultiSpawn(msd_vars.Alliance1id, "heavybonus4")
-	else
-		RunMultiSpawn(msd_vars.Alliance1id, "heavybonus3")
-	end
-	do
-		msd_vars.Random = RandomHalf(4)
-	end
-	if msd_vars.Random < 1 then
-		RunMultiSpawn(msd_vars.Alliance2id, "heavybonus1")
-	elseif msd_vars.Random < 2 then
-		RunMultiSpawn(msd_vars.Alliance2id, "heavybonus2")
-	elseif msd_vars.Random < 3 then
-		RunMultiSpawn(msd_vars.Alliance2id, "heavybonus4")
-	else
-		RunMultiSpawn(msd_vars.Alliance2id, "heavybonus3")
-	end
-end
-
-function func_SpawnHowitzers()
-	if AreHowitzersDisabled() then
-		RunMultiSpawn(msd_vars.Alliance1id, "support_platoon")
-		RunMultiSpawn(msd_vars.Alliance2id, "support_platoon")
-	elseif not AreHowitzersDisabled() then
-		RunMultiSpawn(msd_vars.Alliance1id, "support_platoon_howitzers")
-		RunMultiSpawn(msd_vars.Alliance2id, "support_platoon_howitzers")
-	end
-end
-
-function func_SpawnSturmIfantryPlatoon()
-	do
-		msd_vars.Random5 = RandomHalf(2)
-	end
-	if msd_vars.Random5 < 1 then
-		RunMultiSpawn(msd_vars.Alliance1id, "sturm_platoon")
-	else
-		RunMultiSpawn(msd_vars.Alliance1id, "sturm_platoon1")
-	end
-	do
-		msd_vars.Random5 = RandomHalf(2)
-	end
-	if msd_vars.Random5 < 1 then
-		RunMultiSpawn(msd_vars.Alliance2id, "sturm_platoon")
-	else
-		RunMultiSpawn(msd_vars.Alliance2id, "sturm_platoon1")
-	end
-end
-
-function func_Rocket()
-	do
-		RunMultiSpawn(msd_vars.Alliance1id, "Rocket")
-		RunMultiSpawn(msd_vars.Alliance2id, "Rocket")
-	end
-end
-
-function func_DefineFlags()
-	do
-		SetFlag("North", 12, 180, false, 180, 0, {"infantry_group", }, {"", }, true, {"", }, {0, }, {8, }, {-1, }, "multi", 0, false, false, {-1, }, {-1, })
-		SetFlag("South", 12, 180, false, 180, 0, {"infantry_group", }, {"", }, true, {"", }, {0, }, {8, }, {-1, }, "multi", 0, false, false, {-1, }, {-1, })
-	end
-	do
-		AIparts:AddOneTime(AIparts:GetUniqueId("TIMER_DO_"), 60*10, function()  msl.CountdownTimer = 180 end)
-		AIparts:AddOneTime(AIparts:GetUniqueId("TIMER_DO_"), 60*10, function()  SetCountdownObjectives({"North","South","Center","East","West", }) end)
-	end
-	do
-		SetFlag("East", 12, 60, false, 1500, 0, {"infantry_platoon", }, {"infantry_group", }, false, {"", }, {0, }, {-1, }, {5, }, "multi", 0, true, true, {-1, }, {0, })
-		SetFlag("Center", 12, 180, false, 2220, 0, {"sturm_platoon","heavybonus1","heavybonus4","spzbat","spzbat1", }, {"heavybonus3", }, false, {"", }, {0, }, {1,1,8, }, {8,8,1,1, }, "multi", 0, true, true, {-1, }, {-1, })
-		SetFlag("West", 12, 240, false, 1800, 0, {"infantry_group","spzbat", }, {"infantry_group", }, false, {"", }, {0, }, {5, }, {5, }, "multi", 0, true, true, {0, }, {0, })
-		SetFlag("East-Northville", 60, 180, true, 1380, 0, {"", }, {"reinf2","reinf1", }, false, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
-		SetFlag("N-ville", 60, 180, true, 1380, 0, {"", }, {"reinf", }, false, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
-		SetFlag("South-Westville", 60, 180, true, 1380, 0, {"", }, {"reinf2","reinf1", }, false, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
-		SetFlag("West-ville", 60, 180, true, 1380, 0, {"", }, {"reinf", }, false, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
-		SetFlag("town", 60, 180, true, 1380, 0, {"", }, {"reinf3", }, true, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
-	end
-end
-
-function func_Aircrafts()
+function func_define_flags()
+	-- set plane descs
 	do
 		SetPlaneDesc("germany", "fighter", "german/fw_190_bomber.dsc")
 		SetPlaneDesc("ussr", "fighter", "ussr/il_2.dsc")
@@ -270,9 +45,31 @@ function func_Aircrafts()
 		SetPlaneSide(8, "SW")
 		SetPlaneSide(9, "SE")
 	end
+	--[[ set time to defeat
+	do
+		AIparts:AddOneTime(AIparts:GetUniqueId("TIMER_DO_"), 60*10, function()  msl.CountdownTimer = 180 end)
+		AIparts:AddOneTime(AIparts:GetUniqueId("TIMER_DO_"), 60*10, function()  SetCountdownObjectives({"North","South","Center","East","West", }) end)
+	end]]
+	-- main points (for win)
+	do
+		SetFlag("North", 12, 180, false, 180, 0, {"infantry_group", }, {"", }, true, {"", }, {0, }, {8, }, {-1, }, "multi", 0, false, false, {-1, }, {-1, })
+		SetFlag("South", 12, 180, false, 180, 0, {"infantry_group", }, {"", }, true, {"", }, {0, }, {8, }, {-1, }, "multi", 0, false, false, {-1, }, {-1, })
+		SetFlag("East", 12, 60, false, 1500, 0, {"infantry_platoon", }, {"infantry_group", }, false, {"", }, {0, }, {-1, }, {5, }, "multi", 0, true, true, {-1, }, {0, })
+		SetFlag("Center", 12, 180, false, 2220, 0, {"sturm_platoon","heavybonus1","heavybonus4","spzbat","spzbat1", }, {"heavybonus3", }, false, {"", }, {0, }, {1,1,8, }, {8,8,1,1, }, "multi", 0, true, true, {-1, }, {-1, })
+		SetFlag("West", 12, 240, false, 1800, 0, {"infantry_group","spzbat", }, {"infantry_group", }, false, {"", }, {0, }, {5, }, {5, }, "multi", 0, true, true, {0, }, {0, })
+	end
+	-- hold points
+	do
+		SetFlag("East-Northville", 60, 180, true, 1380, 0, {"", }, {"reinf2","reinf1", }, false, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
+		SetFlag("N-ville", 60, 180, true, 1380, 0, {"", }, {"reinf", }, false, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
+		SetFlag("South-Westville", 60, 180, true, 1380, 0, {"", }, {"reinf2","reinf1", }, false, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
+		SetFlag("West-ville", 60, 180, true, 1380, 0, {"", }, {"reinf", }, false, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
+		SetFlag("town", 60, 180, true, 1380, 0, {"", }, {"reinf3", }, true, {"", }, {0, }, {-1, }, {-1, }, "multi", 0, true, true, {-1, }, {-1, })
+	end
 end
 
-function func_Bonus()
+function func_bonus()
+	-- spawn neutral objects
 	do
 		SpawnUnit("Units/Artillery/Mortars/german/8cm_grwr34.dsc", "", {"Waypoint 3", }, false)
 		SpawnUnit("Units/Artillery/Mortars/german/8cm_grwr34.dsc", "", {"Waypoint 4", }, false)
@@ -288,11 +85,206 @@ function func_Bonus()
 	end
 end
 
-function func_BonusX()
+function func_scouts()
 	do
-		msd_vars.Random8 = RandomHalf(2)
+		RunMultiSpawn(msd_vars.Alliance1id, "scouts")
+		RunMultiSpawn(msd_vars.Alliance2id, "scouts")
 	end
-	if msd_vars.Random8 < 1 then
+end
+
+function func_general()
+	do
+		RunMultiSpawn(msd_vars.Alliance1id, "general_and_sappers")
+		RunMultiSpawn(msd_vars.Alliance2id, "general_and_sappers")
+	end
+end
+
+function func_inf_platoon1()
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance1id, "infantry_platoon")
+	else
+		RunMultiSpawn(msd_vars.Alliance1id, "infantry_platoon2")
+	end
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance2id, "infantry_platoon")
+	else
+		RunMultiSpawn(msd_vars.Alliance2id, "infantry_platoon2")
+	end
+end
+
+function func_special_squads()
+	do
+		RunSimpleSpawn(6, "arty2guns", "arty2guns")
+		RunSimpleSpawn(7, "sappers", "sappers")
+		RunSimpleSpawn(8, "amphibians", "amphibians")
+		RunSimpleSpawn(9, "sappers", "train")
+	end
+end
+
+function func_antiair()
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance1id, "antiair")
+	else
+		RunMultiSpawn(msd_vars.Alliance1id, "antiair1")
+	end
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance2id, "antiair")
+	else
+		RunMultiSpawn(msd_vars.Alliance2id, "antiair1")
+	end
+end
+
+function func_support()
+	do
+		RunMultiSpawn(msd_vars.Alliance1id, "support_group")
+		RunMultiSpawn(msd_vars.Alliance2id, "support_group")
+	end
+end
+
+function func_tanks()
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance1id, "tank_platoon")
+	else
+		RunMultiSpawn(msd_vars.Alliance1id, "tank_platoon1")
+	end
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance2id, "tank_platoon")
+	else
+		RunMultiSpawn(msd_vars.Alliance2id, "tank_platoon1")
+	end
+end
+
+function func_spg()
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance1id, "spg_platoon1")
+	else
+		RunMultiSpawn(msd_vars.Alliance1id, "spg_platoon")
+	end
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance2id, "spg_platoon1")
+	else
+		RunMultiSpawn(msd_vars.Alliance2id, "spg_platoon")
+	end
+end
+
+function func_inf_platoon2()
+	do
+		RunMultiSpawn(msd_vars.Alliance1id, "infantry_platoon")
+		RunMultiSpawn(msd_vars.Alliance2id, "infantry_platoon")
+	end
+end
+
+function func_spzbat_platoon()
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance1id, "spzbat")
+	else
+		RunMultiSpawn(msd_vars.Alliance1id, "spzbat1")
+	end
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance2id, "spzbat")
+	else
+		RunMultiSpawn(msd_vars.Alliance2id, "spzbat1")
+	end
+end
+
+function func_heavybonus()
+	do
+		msd_vars.random = RandomHalf(4)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance1id, "heavybonus1")
+	elseif msd_vars.random < 2 then
+		RunMultiSpawn(msd_vars.Alliance1id, "heavybonus2")
+	elseif msd_vars.random < 3 then
+		RunMultiSpawn(msd_vars.Alliance1id, "heavybonus4")
+	else
+		RunMultiSpawn(msd_vars.Alliance1id, "heavybonus3")
+	end
+	do
+		msd_vars.random = RandomHalf(4)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance2id, "heavybonus1")
+	elseif msd_vars.random < 2 then
+		RunMultiSpawn(msd_vars.Alliance2id, "heavybonus2")
+	elseif msd_vars.random < 3 then
+		RunMultiSpawn(msd_vars.Alliance2id, "heavybonus4")
+	else
+		RunMultiSpawn(msd_vars.Alliance2id, "heavybonus3")
+	end
+end
+
+function func_howitzers()
+	if AreHowitzersDisabled() then
+		RunMultiSpawn(msd_vars.Alliance1id, "support_platoon")
+		RunMultiSpawn(msd_vars.Alliance2id, "support_platoon")
+	elseif not AreHowitzersDisabled() then
+		RunMultiSpawn(msd_vars.Alliance1id, "support_platoon_howitzers")
+		RunMultiSpawn(msd_vars.Alliance2id, "support_platoon_howitzers")
+	end
+end
+
+function func_sturm_inf_platoon()
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance1id, "sturm_platoon")
+	else
+		RunMultiSpawn(msd_vars.Alliance1id, "sturm_platoon1")
+	end
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
+		RunMultiSpawn(msd_vars.Alliance2id, "sturm_platoon")
+	else
+		RunMultiSpawn(msd_vars.Alliance2id, "sturm_platoon1")
+	end
+end
+
+function func_rocket()
+	do
+		RunMultiSpawn(msd_vars.Alliance1id, "rocket")
+		RunMultiSpawn(msd_vars.Alliance2id, "rocket")
+	end
+end
+
+function func_airbonus()
+	do
+		msd_vars.random = RandomHalf(2)
+	end
+	if msd_vars.random < 1 then
 		AddBonus(6, 2, 2, -1, -1)
 		AddBonus(7, 1, 2, -1, -1)
 		AddBonus(8, 2, 2, -1, -1)
