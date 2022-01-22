@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="4">
+<MissionDescription class_id="0" tracking_level="0" version="2">
+	<MissionName class_id="1" tracking_level="0" version="0">
+		<NonLocaleText>Manchuria</NonLocaleText>
+		<LocaleCount>1</LocaleCount>
+		<LocalePair class_id="2" tracking_level="0" version="0">
+			<Locale>3</Locale>
+			<Text>Маньчжурия</Text>
+		</LocalePair>
+	</MissionName>
+	<MissionDescription>
+		<NonLocaleText></NonLocaleText>
+		<LocaleCount>0</LocaleCount>
+	</MissionDescription>
+	<Players class_id="3" tracking_level="0" version="0">
+		<count>4</count>
+		<item_version>0</item_version>
+		<item class_id="4" tracking_level="0" version="0">
+			<PlayerId>1</PlayerId>
+			<Color>3</Color>
+			<CanBeHuman>1</CanBeHuman>
+		</item>
+		<item>
+			<PlayerId>2</PlayerId>
+			<Color>1</Color>
+			<CanBeHuman>1</CanBeHuman>
+		</item>
+		<item>
+			<PlayerId>3</PlayerId>
+			<Color>2</Color>
+			<CanBeHuman>1</CanBeHuman>
+		</item>
+		<item>
+			<PlayerId>4</PlayerId>
+			<Color>4</Color>
+			<CanBeHuman>1</CanBeHuman>
+		</item>
+	</Players>
+	<MaximalPlayerCount>4</MaximalPlayerCount>
+	<Nations>
+		<count>4</count>
+		<item_version>0</item_version>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+	</Nations>
+	<Multiplayer>1</Multiplayer>
+</MissionDescription>
+</boost_serialization>
